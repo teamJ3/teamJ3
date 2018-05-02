@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:fragment="configFragment">
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Modern Business - Start Bootstrap Template</title>
+
+	<!-- 공통으로 쓰이는 css파일을넣는다.-->
+	
+	<!-- Bootstrap core CSS -->
+	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	
+	<!-- Custom styles for this template -->
+	<link href="../css/modern-business.css" rel="stylesheet" />
+	
+	<!-- 사용자 CSS 영역이 들어감 -->
+	<th:block layout:fragment="css"></th:block>
+	
+	<!-- 공통으로 쓰이는 css파일을넣는다.-->
+	
+	<!-- Bootstrap core JavaScript -->
+	<script src="../vendor/jquery/jquery.min.js"></script>
+	<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	
+	<!-- 사용자 스크립트 영역이 들어감 -->
+	<th:block layout:fragment="script"></th:block>
+</head>
+
+</html>
