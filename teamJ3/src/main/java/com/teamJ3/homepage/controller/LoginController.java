@@ -46,8 +46,6 @@ public class LoginController {
     	CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getDetails();
     	System.out.println(userDetails.getPassword());
     	
-    	ra.addFlashAttribute("isVerifyIpAddr", false);
-    	
     	return "redirect:/";
     }
 
