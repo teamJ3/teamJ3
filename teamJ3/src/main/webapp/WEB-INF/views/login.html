@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorator="layout/default">
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+</th:block>
+ 
+<!-- 사용자 스크립트 추가 -->
+<th:block layout:fragment="script">
+</th:block>
+
+<div layout:fragment="content" >
+
+    <!-- Page Content -->
+    <div class="container">
+		
+      <!-- Page Heading/Breadcrumbs -->
+      <h1 class="mt-4 mb-3">로그인 페이지</h1>
+		
+	    <form role="form" method="POST" action="login-process" class="form-signin">
+	        <div class="form-group ${error != null ? 'has-error' : ''}">
+	            <span>${message}</span>
+	            <input name="id" type="text" class="form-control" placeholder="ID를 입력해주세요."
+	                   autofocus="autofocus"/>
+	            <input name="pw" type="password" class="form-control" placeholder="비밀번호를 입력해주세요."/>
+	            <span>${error}</span>
+	            <!-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> -->
+	
+	            <button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
+	            <h4 class="text-center"><a href="/register">회원가입</a></h4>
+	        </div>
+	    </form>
+    
+	</div>
+</div>
+
+</html>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.teamJ3.homepage.dao.LoginMapper">
+
+	<!-- 로그인 유효성 판단 (0:없는 ID, 1:암호틀림, 2:OK) -->
+	<select id="selectLoginVerifyOne" resultType="int" parameterType="java.util.HashMap">
+		SELECT 
+		    (SELECT COUNT(*) FROM users WHERE users_id = #{id}) + 
+		    (SELECT COUNT(*) FROM users WHERE users_id = #{id} AND users_password = #{pw})
+		    <!-- (SELECT COUNT(*) FROM users WHERE user_id = #{id} AND user_pw = PASSWORD('1111')) -->
+		FROM DUAL 
+	</select>
+	
+	<!-- 사용자 정보 조회 -->
+	<select id="selectUserInfo" resultType="User" parameterType="java.util.HashMap">
+		SELECT users_id, users_password, users_name, users_email, users_auth FROM users WHERE users_id = #{id}
+	</select>
+	
+	<!--  사용자 정보 획득 -->
+	<select id="selectUserOne" resultType="java.util.HashMap" parameterType="String">
+		SELECT users_id, PASSWORD(users_password), users_name,users_email, users_auth FROM users WHERE users_id = #{id}
+	</select>
+
+	<!-- 사용자 이름 획득 -->
+	<select id="selectUserNameOne" resultType="String" parameterType="String">
+		SELECT users_name FROM users WHERE users_id = #{id}
+	</select>
+	
+	<!-- 사용자 권한 획득 -->
+	<select id="selectUserAuthOne" resultType="String" parameterType="String">
+		SELECT users_auth FROM users WHERE users_id = #{id}
+	</select>
+	
+	
+	<!-- 로그인 유형성 판단 (0:없는 ID, 1:암호틀림, 2:OK, 3:기본암호상태 -->
+	<select id="selectLoginCheckOne" resultType="int" parameterType="java.util.HashMap">
+		SELECT 
+			(SELECT COUNT(users_id) FROM users WHERE users_id = #{id}) +
+			(SELECT COUNT(users_id) FROM users WHERE users_id = #{id} AND users_password = #{pw})
+		FROM DUAL 	
+	</select>
+	
+	<!-- 새 비밀번호 유효성 판단 (0: 기존비밀번호, 1:사용가능 비밀번호 ) -->
+	<select id="selectCheckDefaultPwdOne" resultType="int" parameterType="java.util.HashMap">
+		SELECT (SELECT COUNT(users_id)
+			FROM users
+			WHERE users_id = #{id} and PASSWORD(#{newPw}) != '1111')
+		FROM DUAL 
+	</select>
+
+	<!-- 비밀번호 변경 -->
+	<update id="updateUserPwd" parameterType="java.util.HashMap">
+		UPDATE users SET users_password = PASSWORD(#{newPw}) WHERE users_id = #{id} 
+	</update>
+	
+	<!-- 로그인 로그 -->  
+	<insert id="insertUserLog" parameterType="java.util.HashMap">
+		INSERT INTO users_log (users_id, session_id, login_dt) 
+		VALUES (#{userId}, #{sessionId}, now())
+	</insert>
+	
+	<!-- 로그아웃 로그 -->
+	<update id="updateUserLog" parameterType="java.util.HashMap">
+		UPDATE users_log SET logout_dt = now()
+		WHERE session_id = #{sessionId}
+	</update>
+
+</mapper>
+

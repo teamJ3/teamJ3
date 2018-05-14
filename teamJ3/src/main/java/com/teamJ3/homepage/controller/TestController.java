@@ -4,23 +4,33 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.teamJ3.homepage.service.TestService;
+
 /**
  * Handles requests for the application home page.
  */
 @Controller
-public class testController {
+public class TestController {
 
 	private static final Logger log = LoggerFactory
-			.getLogger(testController.class);
+			.getLogger(TestController.class);
+
+	@Autowired
+	private TestService testService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView index(HttpServletRequest request, ModelAndView mav) {
 		log.info("첫 index 페이지 로딩중...");
+
+		String now = testService.getNow();
+
+		log.info("mariaDB 조회 테스트  : " + now);
 
 		mav = new ModelAndView();
 		mav.setViewName("index");
@@ -164,8 +174,7 @@ public class testController {
 	}
 
 	@RequestMapping(value = "/pricing", method = RequestMethod.GET)
-	public ModelAndView pricing(HttpServletRequest request,
-			ModelAndView mav) {
+	public ModelAndView pricing(HttpServletRequest request, ModelAndView mav) {
 		log.info("pricing 페이지 로딩중...");
 
 		mav = new ModelAndView();
@@ -175,8 +184,7 @@ public class testController {
 	}
 
 	@RequestMapping(value = "/services", method = RequestMethod.GET)
-	public ModelAndView services(HttpServletRequest request,
-			ModelAndView mav) {
+	public ModelAndView services(HttpServletRequest request, ModelAndView mav) {
 		log.info("services 페이지 로딩중...");
 
 		mav = new ModelAndView();
@@ -186,8 +194,7 @@ public class testController {
 	}
 
 	@RequestMapping(value = "/sidebar", method = RequestMethod.GET)
-	public ModelAndView sidebar(HttpServletRequest request,
-			ModelAndView mav) {
+	public ModelAndView sidebar(HttpServletRequest request, ModelAndView mav) {
 		log.info("sidebar 페이지 로딩중...");
 
 		mav = new ModelAndView();
@@ -195,5 +202,5 @@ public class testController {
 
 		return mav;
 	}
-	
+
 }
