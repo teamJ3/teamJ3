@@ -1,6 +1,75 @@
 <!DOCTYPE html>
-<html>
-<body>
- 헹
-</body>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/default">
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+</th:block>
+
+<!-- 사용자 스크립트 추가 -->
+<th:block layout:fragment="script">
+</th:block>
+
+<div class="wapper" layout:fragment="content">
+	<div class="container">
+
+		<div class="box">
+			<div class="box-header">
+				<h3 class="mt-4 mb-3">공지사항</h3>
+				<!-- general form elements -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">게시글보기</h3>
+					</div>
+				</div>
+			</div>
+			
+			<table width = "100%">
+				<tr >
+					<td width = "5%">글번호</td> <td class="form-control">글번호1</td>
+					<td width = "5%">조회수</td> <td class="form-control">조회수777</td>
+				</tr>
+				<tr>
+					<td>작성자</td> <td class="form-control">작성자 정</td>
+					<td>작성일</td> <td class="form-control">작성일 오늘</td>
+				</tr>
+			</table>
+			
+			<div class="form-group">
+				<label for="Subject">제목</label> 
+				<label class="form-control" id="view_Subject">제목????</label>
+			</div>
+				
+			<!-- /.box-header -->
+			<div class="box-body pad">
+				<div class="form-group">
+					<label for="Contents">내용</label> 
+					<label class="textarea"
+						style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+						내용입니다~~</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="file">첨부파일</label> 
+				<label class="form-control" id="view_File">첨부파일 !!!!!!</label>
+			</div>
+			
+			<div class="form-group">
+				<label for="Subject">작성자</label> 
+				<label class="form-control" id="view_Writer">작성자 정이슬</label>
+				<label for="Subject">작성일</label> 
+				<label class="form-control" id="view_Date">작성일 오늘</label>
+			</div>
+
+			<div class="box-footer">
+				<button type="submit" class="btn btn-primary">목록으로</button>
+				<button type="submit" class="btn btn-primary">수정</button>
+			</div>
+
+		</div>
+
+	</div>
+</div>
 </html>
