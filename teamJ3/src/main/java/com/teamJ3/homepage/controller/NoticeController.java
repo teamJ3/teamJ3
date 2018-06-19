@@ -31,4 +31,28 @@ public class NoticeController {
 
 		return mav;
 	}
+	
+	
+	@RequestMapping(value = "/board-write", method = RequestMethod.GET)
+	public ModelAndView boardWrite(HttpServletRequest request, ModelAndView mav) {
+		
+		log.info("board-write 페이지 로딩중...");
+
+		mav = new ModelAndView();
+		mav.setViewName("board-write");
+
+		return mav;
+	}
+	
+	
+	@RequestMapping(value = "/board-info", method = RequestMethod.GET)
+	public ModelAndView boardInfo(HttpServletRequest request, ModelAndView mav) {
+		
+		log.info("board-info 페이지 로딩중...");
+
+		mav = new ModelAndView();
+		mav.setViewName("board-info");
+
+		return mav;
+	}
 }
