@@ -13,94 +13,113 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"/>
 
-	<div class="wapper" layout:fragment="content">
-			<div class="container">
-				<div class="col-xs-12">
-					<div class="box">
-							<h3 class="mt-4 mb-3">공지사항</h3>
-							<div class="box-tools">
-								<div class="input-group input-group-sm" style="width: 150px;">
-									<input type="text" name="table_search"
-										class="form-control pull-right" placeholder="Search" />
+<div class="wapper" layout:fragment="content">
+	<div class="container">
+		<div class="col-xs-12">
+			<div class="box" style="margin-top: 100px;">
+				<div class="box-header">
+					<h3 class="box-title">공지사항</h3>
+					<div class="box-tools">
+						<div class="input-group input-group-sm" style="width: 150px;">
+							<input type="text" name="table_search"
+								class="form-control pull-right" placeholder="Search" />
 
-									<div class="input-group-btn">
-										<button type="submit" class="btn btn-default">
-											<i class="fa fa-search"></i>
-										</button>
-									</div>
-								</div>
-								
-							<h6 align="right"><a href="/board-write">글쓰기</a></h6>
+							<div class="input-group-btn">
+								<button type="submit" class="btn btn-default">
+									<i class="fa fa-search"></i>
+								</button>
 							</div>
-						<!-- /.box-header -->
-						<div class="box-body table-responsive no-padding">
-							<table class="table table-hover">
-								<tr>
-									<th>No</th>
-									<th>제목</th>
-									<th>작성일</th>
-									<th>작성자</th>
-									<th>조회수</th>
-									<th>Status</th>
-									
-								</tr>
-								<tr>
-									<td>183</td>
-									<td class="boardTitle"> <a href="/board-info">Bacon ipsum dolor sit amet salami venison chicken
-										flank fatback doner.</a></td>
-									<td>11-7-2014</td>
-									<td>John Doe</td>
-									<td>100</td>
-									<td><span class="label label-success">Approved</span></td>
-									
-								</tr>
-								<tr>
-									<td>219</td>
-									<td class="boardTitle">Bacon ipsum dolor sit amet salami venison chicken
-										flank fatback doner.</td>
-									<td>11-7-2014</td>
-									<td>Alexander Pierce</td>
-									<td>100</td>
-									<td><span class="label label-warning">Pending</span></td>
-								</tr>
-								<tr>
-									<td>657</td>
-									<td class="boardTitle">Bacon ipsum dolor sit amet salami venison chicken
-										flank fatback doner.</td>
-									<td>11-7-2014</td>
-									<td>Bob Doe</td>
-									<td>100</td>
-									<td><span class="label label-primary">Approved</span></td>
-									
-								</tr>
-								<tr>
-									<td>175</td>
-									<td class="boardTitle">Bacon ipsum dolor sit amet salami venison chicken
-										flank fatback doner.</td>
-									<td>11-7-2014</td>
-									<td>Mike Doe</td>
-									<td>100</td>
-									<td><span class="label label-danger">Denied</span></td>
-									
-								</tr>
-							</table>
 						</div>
-						<!-- /.box-body -->
 					</div>
-					<!--  /.box -->
+
 				</div>
-			</div>
-			
-			<div class="row"><div class="col-sm-5">
-				<div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries
+				<!-- /.box-header -->
+				<div class="box-body table-responsive no-padding">
+					<table class="table table-hover">
+						<tr>
+							<th>No</th>
+							<th>제목</th>
+							<th>작성일</th>
+							<th>작성자</th>
+							<th>조회수</th>
+							<th>Status</th>
+
+						</tr>
+						<tr>
+							<td>183</td>
+							<td class="boardTitle"><a href="/board-info">Bacon ipsum
+									dolor sit amet salami venison chicken flank fatback doner.</a></td>
+							<td>11-7-2014</td>
+							<td>John Doe</td>
+							<td>100</td>
+							<td><span class="label label-success">Approved</span></td>
+
+						</tr>
+						<tr>
+							<td>219</td>
+							<td class="boardTitle">Bacon ipsum dolor sit amet salami
+								venison chicken flank fatback doner.</td>
+							<td>11-7-2014</td>
+							<td>Alexander Pierce</td>
+							<td>100</td>
+							<td><span class="label label-warning">Pending</span></td>
+						</tr>
+						<tr>
+							<td>657</td>
+							<td class="boardTitle">Bacon ipsum dolor sit amet salami
+								venison chicken flank fatback doner.</td>
+							<td>11-7-2014</td>
+							<td>Bob Doe</td>
+							<td>100</td>
+							<td><span class="label label-primary">Approved</span></td>
+
+						</tr>
+						<tr>
+							<td>175</td>
+							<td class="boardTitle">Bacon ipsum dolor sit amet salami
+								venison chicken flank fatback doner.</td>
+							<td>11-7-2014</td>
+							<td>Mike Doe</td>
+							<td>100</td>
+							<td><span class="label label-danger">Denied</span></td>
+
+						</tr>
+					</table>
 				</div>
+				<!-- /.box-body -->
 			</div>
-			<div class="col-sm-7">
-				<div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
-					<ul class="pagination"><li class="paginate_button previous disabled" id="example2_previous"><a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button "><a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0">2</a></li><li class="paginate_button "><a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0">3</a></li><li class="paginate_button "><a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0">4</a></li><li class="paginate_button "><a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0">5</a></li><li class="paginate_button "><a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0">6</a></li><li class="paginate_button next" id="example2_next"><a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0">Next</a></li>
+			<!--  /.box -->
+		</div>
+		<div class="row" style="magin">
+			<div class="col-sm-12">
+				<div class="dataTables_paginate paging_simple_numbers"
+					id="example2_paginate">
+					<ul class="pagination">
+						<li class="paginate_button previous disabled"
+							id="example2_previous"><a href="#" aria-controls="example2"
+							data-dt-idx="0" tabindex="0">Previous</a></li>
+						<li class="paginate_button active"><a href="#"
+							aria-controls="example2" data-dt-idx="1" tabindex="0">1</a></li>
+						<li class="paginate_button "><a href="#"
+							aria-controls="example2" data-dt-idx="2" tabindex="0">2</a></li>
+						<li class="paginate_button "><a href="#"
+							aria-controls="example2" data-dt-idx="3" tabindex="0">3</a></li>
+						<li class="paginate_button "><a href="#"
+							aria-controls="example2" data-dt-idx="4" tabindex="0">4</a></li>
+						<li class="paginate_button "><a href="#"
+							aria-controls="example2" data-dt-idx="5" tabindex="0">5</a></li>
+						<li class="paginate_button "><a href="#"
+							aria-controls="example2" data-dt-idx="6" tabindex="0">6</a></li>
+						<li class="paginate_button next" id="example2_next"><a
+							href="#" aria-controls="example2" data-dt-idx="7" tabindex="0">Next</a></li>
 					</ul>
-					</div>
 				</div>
 			</div>
+		</div>
 	</div>
+
+
+</div>
+
+<!-- page script -->
 </html>
