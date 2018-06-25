@@ -32,7 +32,7 @@ public class NoticeController {
 		return mav;
 	}
 	
-	
+		
 	@RequestMapping(value = "/board-write", method = RequestMethod.GET)
 	public ModelAndView boardWrite(HttpServletRequest request, ModelAndView mav) {
 		
@@ -55,4 +55,25 @@ public class NoticeController {
 
 		return mav;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@RequestMapping(value = "/board-estimate", method = RequestMethod.GET)
+	public ModelAndView boardEstimate(HttpServletRequest request, ModelAndView mav) {
+		
+		log.info("board-estimate 페이지 로딩중...");
+
+		mav = new ModelAndView();
+		mav.setViewName("board-estimate");
+
+		return mav;
+	}
+	
+	
 }

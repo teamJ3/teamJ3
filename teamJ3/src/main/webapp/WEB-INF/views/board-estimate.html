@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/default">
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+</th:block>
+
+<!-- 사용자 스크립트 추가 -->
+<th:block layout:fragment="script">
+</th:block>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"/>
+
+<div layout:fragment="content">
+	<div class="container">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="mt-4 mb-3">견적문의</h3>
+			</div>
+			
+			<div class="row">
+				<div class="col-lg-8 mb-4">
+				  <h3>Send us a Message</h3>
+				  <form name="sentMessage" id="contactForm">
+				    <div class="control-group form-group">
+				      <div class="controls">
+				        <label>성함:</label>
+				        <input type="text" class="form-control" id="name"></input>
+				        <p class="help-block"></p>
+				      </div>
+				    </div>
+				    <div class="control-group form-group">
+				      <div class="controls">
+				        <label>연락처:</label>
+				        <input type="tel" class="form-control" id="phone"></input>
+				      </div>
+				    </div>
+				    <div class="control-group form-group">
+				      <div class="controls">
+				        <label>이메일:</label>
+				        <input type="email" class="form-control" id="email"></input>
+				      </div>
+				    </div>
+				    <div class="control-group form-group">
+				      <div class="controls">
+				        <label>내용:</label>
+				        <textarea rows="10" cols="100" class="form-control" id="message" maxlength="999" style="resize:none"></textarea>
+				      </div>
+				    </div>
+				    <div id="success"></div>
+				    <!-- For success/fail messages -->
+				    <button type="submit" class="btn btn-primary" id="sendMessageButton">Send Message</button>
+				  </form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+      
+</html>
