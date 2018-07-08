@@ -40,22 +40,32 @@
 				<!-- /.box-header -->
 				<div class="box-body table-responsive no-padding">
 					<table class="table table-hover">
+						
 						<tr>
 							<th>No</th>
 							<th>제목</th>
 							<th>작성일</th>
 							<th>작성자</th>
-							<th>조회수</th>
 							<th>Status</th>
 
 						</tr>
-						<tr>
+						
+							
+						<tr th:each="list : ${list}">
+							<td th:text="${list.notice_id}"></td>
+							<td class="boardTitle" th:text="${list.notice_subject}"><a href="/board-info"></a></td>
+							<td th:text="${list.notice_Reg_date}"></td>
+							<td th:text="${list.notice_writer}"></td>
+							<td><span class="label label-success">Approved</span></td>
+						</tr>
+						
+						
+						<!-- <tr>
 							<td>183</td>
 							<td class="boardTitle"><a href="/board-info">Bacon ipsum
 									dolor sit amet salami venison chicken flank fatback doner.</a></td>
 							<td>11-7-2014</td>
 							<td>John Doe</td>
-							<td>100</td>
 							<td><span class="label label-success">Approved</span></td>
 
 						</tr>
@@ -65,7 +75,6 @@
 								venison chicken flank fatback doner.</td>
 							<td>11-7-2014</td>
 							<td>Alexander Pierce</td>
-							<td>100</td>
 							<td><span class="label label-warning">Pending</span></td>
 						</tr>
 						<tr>
@@ -74,7 +83,6 @@
 								venison chicken flank fatback doner.</td>
 							<td>11-7-2014</td>
 							<td>Bob Doe</td>
-							<td>100</td>
 							<td><span class="label label-primary">Approved</span></td>
 
 						</tr>
@@ -84,10 +92,9 @@
 								venison chicken flank fatback doner.</td>
 							<td>11-7-2014</td>
 							<td>Mike Doe</td>
-							<td>100</td>
 							<td><span class="label label-danger">Denied</span></td>
-
-						</tr>
+						</tr> -->
+						
 					</table>
 				</div>
 				<!-- /.box-body -->
