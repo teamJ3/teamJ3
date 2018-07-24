@@ -6,6 +6,7 @@ public class Notice {
 	private String notice_writer;
 	private String notice_subject;
 	private String notice_Reg_date;
+	private String notice_contents;
 	
 	public int getNotice_id() {
 		return notice_id;
@@ -22,6 +23,9 @@ public class Notice {
 	public String getNotice_subject() {
 		return notice_subject;
 	}
+	public String getNotice_contents() {
+		return notice_contents;
+	}
 	public void setNotice_subject(String notice_subject) {
 		this.notice_subject = notice_subject;
 	}
@@ -31,10 +35,14 @@ public class Notice {
 	public void setNotice_Reg_date(String notice_Reg_date) {
 		this.notice_Reg_date = notice_Reg_date;
 	}
+	public void setNotice_contents(String notice_contents) {
+		this.notice_contents = notice_contents;
+	}
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return "Notice [notice_id=" + notice_id + ", notice_writer=" + notice_writer + ", notice_subject=" + notice_subject + ", notice_Reg_date=" + notice_Reg_date + "]";
+		return "Notice [notice_id=" + notice_id + ", notice_writer=" + notice_writer + ", notice_subject="
+				+ notice_subject + ", notice_Reg_date=" + notice_Reg_date + ", notice_contents=" + notice_contents
+				+ "]";
 	}
 	
 	

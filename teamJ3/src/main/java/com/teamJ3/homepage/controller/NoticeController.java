@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.teamJ3.homepage.dto.Notice;
@@ -60,6 +61,14 @@ public class NoticeController {
 		log.info("board-estimate 페이지 로딩중...");
 		mav = new ModelAndView();
 		mav.setViewName("board-estimate");
+		return mav;
+	}
+	
+	
+	@RequestMapping(value = "/board-submit", method = RequestMethod.POST)
+	public ModelAndView boardSubmit(Notice notice, ModelAndView mav) {
+		log.info("board-Submit 로딩중...");
+		System.out.println(notice.getNotice_contents());
 		return mav;
 	}
 	
