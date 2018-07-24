@@ -19,5 +19,10 @@ public class NoticeService {
 		System.out.println("service");
 		return noticeDao.selectNoticeList();
 	}
+	
+	public int insertNotice(Notice notice){
+		System.out.println("service insertNotice");
+		return noticeDao.insertNotice(notice);
+	}
 
 }

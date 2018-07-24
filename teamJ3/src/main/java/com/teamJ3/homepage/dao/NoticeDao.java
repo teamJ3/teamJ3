@@ -19,4 +19,9 @@ public class NoticeDao {
 		return sqlSession.selectList("com.teamJ3.homepage.dao.NoticeMapper.selectNoticeList");
 	}
 	
+	public int insertNotice(Notice notice){
+		System.out.println("inserNoticeOK");
+		return sqlSession.insert("com.teamJ3.homepage.dao.NoticeMapper.insertNotice", notice);
+	}
+	
 }

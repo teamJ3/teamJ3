@@ -8,5 +8,8 @@
 		  FROM NOTICE
 	</select>
 
-
+	<insert id="insertNotice" parameterType="Notice">
+		INSERT INTO NOTICE(NOTICE_SUBJECT, NOTICE_CONTENTS, NOTICE_WRITER)
+		VALUES(#{notice_subject}, #{notice_contents}, #{notice_writer})
+	</insert>
 </mapper>

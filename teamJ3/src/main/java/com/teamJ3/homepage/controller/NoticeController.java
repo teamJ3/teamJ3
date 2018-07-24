@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,6 +44,7 @@ public class NoticeController {
 		log.info("board-write 페이지 로딩중...");
 		mav = new ModelAndView();
 		mav.setViewName("board-write");
+		mav.addObject("Notice", new Notice());
 		return mav;
 	}
 	
@@ -66,10 +68,12 @@ public class NoticeController {
 	
 	
 	@RequestMapping(value = "/board-submit", method = RequestMethod.POST)
-	public ModelAndView boardSubmit(Notice notice, ModelAndView mav) {
+	public String boardSubmit(Notice notice, ModelAndView mav) {
 		log.info("board-Submit 로딩중...");
 		System.out.println(notice.getNotice_contents());
-		return mav;
+		notice.setNotice_writer("admin");
+		service.insertNotice(notice);
+		return "redirect:/board-notice";
 	}
 	
 	
