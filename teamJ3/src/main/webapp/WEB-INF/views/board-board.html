@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/default">
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+</th:block>
+
+<!-- 사용자 스크립트 추가 -->
+<th:block layout:fragment="script">
+<script>
+	function rowClicked(value){
+		  location.href = "/board/board-info?boardId=" + value;
+	}
+</script>
+</th:block>
+
+<div class="container"  layout:fragment="content" >
+	<div class="row">
+		<div class="col-sm-12">
+			<h6 align="right">
+				<a href="/board/board-write">글쓰기</a>
+			</h6>
+		</div>
+	</div>
+	<div class="col-xs-12">
+			<div class="box" >
+					<div class="box-header">
+					<h3 class="box-title">공지사항</h3>
+					<div class="box-tools">
+						<div class="input-group input-group-sm" style="width: 150px;">
+							<input type="text" name="table_search"
+								class="form-control pull-right" placeholder="Search" />
+
+							<div class="input-group-btn">
+								<button type="submit" class="btn btn-default">
+									<i class="fa fa-search"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body table-responsive no-padding">
+					<table class="table table-hover">
+						
+						<tr>
+							<th>No</th>
+							<th>제목</th>
+							<th>작성일</th>
+							<th>작성자</th>
+							<th>Status</th>
+						</tr>
+							
+						<tr th:each="list : ${list}" th:onclick = "'javascript:rowClicked(\'' + ${list.board_id} + '\');'">
+							<td th:text="${list.board_id}"></td>
+							<td class="boardTitle" th:text="${list.board_subject}"><a href="/board-info"></a></td>
+							<td th:text="${list.board_Reg_date}"></td>
+							<td th:text="${list.board_writer}"></td>
+							<td><span class="label label-success">Approved</span></td>	
+						</tr>
+						
+					</table>
+				</div>
+				<!-- /.box-body -->
+			</div>
+			<!--  /.box -->
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="dataTables_paginate paging_simple_numbers"
+					id="example2_paginate">
+					<ul class="pagination">
+						<li class="paginate_button previous disabled"
+							id="example2_previous"><a href="#" aria-controls="example2"
+							data-dt-idx="0" tabindex="0">Previous</a></li>
+						<li class="paginate_button active"><a href="#"
+							aria-controls="example2" data-dt-idx="1" tabindex="0">1</a></li>
+						<li class="paginate_button "><a href="#"
+							aria-controls="example2" data-dt-idx="2" tabindex="0">2</a></li>
+						<li class="paginate_button "><a href="#"
+							aria-controls="example2" data-dt-idx="3" tabindex="0">3</a></li>
+						<li class="paginate_button "><a href="#"
+							aria-controls="example2" data-dt-idx="4" tabindex="0">4</a></li>
+						<li class="paginate_button "><a href="#"
+							aria-controls="example2" data-dt-idx="5" tabindex="0">5</a></li>
+						<li class="paginate_button "><a href="#"
+							aria-controls="example2" data-dt-idx="6" tabindex="0">6</a></li>
+						<li class="paginate_button next" id="example2_next"><a
+							href="#" aria-controls="example2" data-dt-idx="7" tabindex="0">Next</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+<!-- page script -->
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.teamJ3.homepage.dao.BoardMapper">
+
+	<select id="selectBoardList" resultType="Board">
+		SELECT BOARD_ID, BOARD_WRITER, BOARD_SUBJECT, DATE_FORMAT(BOARD_REG_DATE,'%Y-%m-%d')BOARD_REG_DATE
+		  FROM BOARD
+	</select>
+
+	<insert id="insertBoard" parameterType="Board">
+		INSERT INTO BOARD(BOARD_SUBJECT, BOARD_CONTENTS, BOARD_REG_DATE, BOARD_WRITER)
+		VALUES(#{board_subject}, #{board_contents}, sysdate(), #{board_writer})
+	</insert>
+	
+	<select id="selectBoardInfo" resultType="Board" parameterType="int">
+		SELECT BOARD_ID, BOARD_WRITER, BOARD_SUBJECT, BOARD_REG_DATE, BOARD_CONTENTS
+		FROM BOARD
+		WHERE BOARD_ID = #{boardId}
+	</select>
+</mapper>

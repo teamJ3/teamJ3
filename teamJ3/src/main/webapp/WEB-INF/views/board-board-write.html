@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/default">
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+</th:block>
+
+<!-- 사용자 스크립트 추가 -->
+<th:block layout:fragment="script">
+	<script type="text/javascript">
+		//submit
+		function checkFrm2() {
+			var subject = $("#board_Subject").val();
+			var contents = $("#board_Contents").val();
+			
+			if(subject == ""){
+				alert("제목을 입력해 주세요.");
+				return false;
+			}else if(contents == ""){
+				alert("내용을 입력해 주세요.");
+				return false;
+			}
+		}
+	</script>
+</th:block>
+
+
+<div class="wapper" layout:fragment="content">
+	<div class="container">
+
+		<div class="box">
+			<div class="box-header">
+				<h3 class="mt-4 mb-3">공지사항</h3>
+
+				<!-- general form elements -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">글쓰기</h3>
+					</div>
+				</div>
+			</div>	
+			
+		<form id = "form01" name = "form01" th:action="@{/board/board-submit}" th:object="${Board}" action="#" method="post">
+					<div class="form-group">
+						<label for="exampleInputEmail1">제목</label> 
+						<input type="text" class="form-control" id="board_subject" name="board_subject" th:field="*{board_subject}" placeholder="제목을 입력하세요."></input>
+					</div>
+				
+				<!-- tools box -->
+			<div class="pull-right box-tools">
+				<button type="button" class="btn btn-default btn-sm"
+					data-widget="collapse" data-toggle="tooltip" title="Collapse">
+					<i class="fa fa-minus"></i>
+				</button>
+				<button type="button" class="btn btn-default btn-sm"
+					data-widget="remove" data-toggle="tooltip" title="Remove">
+					<i class="fa fa-times"></i>
+				</button>
+			</div>
+			<!-- /. tools -->
+			
+			
+			<!-- /.box-header -->
+			<div class="box-body pad">
+				
+			<textarea class="textarea" placeholder="내용을 입력하세요."  id="board_contents" name = "board_contents" th:field="*{board_contents}"
+						style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+				
+			</div>
+
+			<div class="form-group">
+				<label for="exampleInputFile">첨부파일 여기 좀 아래로 내려주세요--></label> 
+				<input type="file" id="board_file" ></input>
+				<!-- <p class="help-block">Example block-level help text here.</p> -->
+			</div>
+			
+			<div class="form-group">
+				<label for="Writer" >작성자</label> 
+				<label for="Writer"  id="board_Writer" name = "board_writer" th:field="*{board_writer}">작성자입니다.</label>
+			</div>
+
+
+			<div class="box-footer">
+				<input type="submit" class="btn btn-primary" id="btnSubmit"	></input>
+			</div>
+
+		</form>
+		</div>
+
+	</div>
+</div>
+
+
+</html>

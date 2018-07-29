@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/default">
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+</th:block>
+
+<!-- 사용자 스크립트 추가 -->
+<th:block layout:fragment="script">
+</th:block>
+
+<div class="wapper" layout:fragment="content">
+	<div class="container">
+
+		<div class="box">
+			<div class="box-header">
+				<h3 class="mt-4 mb-3">게시판</h3>
+			</div>
+			
+			
+		<hr></hr>
+		<!-- Post Content Column -->
+	
+	<div th:object="${boardInfo}">
+          <div class="t20">
+			<table width="100%" summary="" >
+			  <colgroup>
+			  <col width="20%;" />
+			  <col width="80%;" />
+			  </colgroup>
+			  <tr>
+				<th class="card-header">제목</th>
+				<td ><strong style = "margin-left: 20px" th:text="*{board_subject}"></strong></td>
+			  </tr>
+			  <tr>
+				<th class="card-header">작성자</th>
+				<td ><a style = "margin-left: 20px" th:text="*{board_writer}"></a></td>
+			  </tr>
+			  
+			  <tr>
+				<th class="card-header" >등록일</th>
+				<td ><a style = "margin-left: 20px" th:text="*{board_Reg_date}"></a></td>
+			  </tr>
+			  
+			  <tr>
+				<th class="card-header">첨부파일</th>
+				<td ><a style = "margin-left: 20px">file.jpg</a></td>
+			  </tr>
+			  
+			</table>
+		  </div>
+
+        
+          <hr></hr>
+
+          <!-- Post Content -->
+          <p class="lead" th:text="*{board_contents}"></p>
+          <hr></hr>
+
+          <!-- Comments Form -->
+          <div class="card my-4">
+            <h5 class="card-header">Leave a Comment:</h5>
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <textarea class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Single Comment -->
+          <div class="media mb-4">
+            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt=""></img>
+            <div class="media-body">
+              <h5 class="mt-0">Commenter Name</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </div>
+
+          <!-- Comment with nested comments -->
+          <div class="media mb-4">
+            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt=""></img>
+            <div class="media-body">
+              <h5 class="mt-0">Commenter Name</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+              <div class="media mt-4">
+                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt=""></img>
+                <div class="media-body">
+                  <h5 class="mt-0">Commenter Name</h5>
+                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+              </div>
+
+              <div class="media mt-4">
+                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt=""></img>
+                <div class="media-body">
+                  <h5 class="mt-0">Commenter Name</h5>
+                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+	</div>
+
+	</div>
+</div>
+</html>
